@@ -1,14 +1,15 @@
-# supercollider - a  sclang language grammar for highlightjs
+# sclang language grammar for [highlight.js](https://highlightjs.org/)
 
 ![license](https://badgen.net/badge/license/MIT/blue)
 
-> sclang is the language of the audio synthesis platform SuperCollider
+Allows highlighting of sclang source code via `highlight.js`.
+This is a fork of <https://github.com/highlightjs/highlightjs-supercollider>.
+
+*sclang* is the language of the audio synthesis platform [SuperCollider](https://github.com/supercollider).
 
 The implementation details are lent from <https://github.com/highlightjs/highlightjs-cypher> and <https://github.com/highlightjs/highlightjs-robots-txt>.
 
 ## Usage
-
-Simply include the Highlight.js library in your webpage or Node app, then load this module.
 
 ### Static website or simple usage
 
@@ -25,7 +26,13 @@ It is possible to use the minified version found in the `dist` directory.  This 
 
 ### Using directly from the UNPKG CDN
 
-TODO
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://unpkg.com/highlightjs-sclang@0.2.0/dist/sclang.min.js"></script>
+<script type="text/javascript">
+  hljs.highlightAll();
+</script>
+```
 
 ### With Node or another build system
 
@@ -45,7 +52,9 @@ As the build process is rather complex (see <https://github.com/highlightjs/high
 
 ### Start development in server
 
-`make dev`
+```shell
+make dev
+```
 
 Alternative: Start a local development server via `python3 -m http.server` and access the `test/index.html` file on <http://127.0.0.1:8000/test/index.html>.
 After this modify the `src/sclang.js` file and reload the browser.
@@ -54,13 +63,17 @@ After the adjustments have been made, it is necessary to build a minified versio
 
 ### How to run tests
 
-`make test-docker`
+```shell
+make test-docker
+```
 
 Tests will also run in CI.
 
 ### How to build
 
-`make build-docker`
+```shell
+make build-docker
+```
 
 ### Updating `highlight.js`
 
@@ -69,6 +82,12 @@ The following files need to be updated if `highlight.js` needs to be updated
 * `Dockerfile` pulls `highlight.js` via a git branch name - update this branch name
 * `package.json` is required for testing
 * `test/index.html` is required for development and links `highlight.js` from unpkg
+
+### How to publish
+
+```shell
+npm publish
+```
 
 ## License
 

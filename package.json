@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/capital-G/highlightjs-supercollider"
+    "url": "git+https://github.com/capital-G/highlightjs-supercollider.git"
   },
   "keywords": [
     "sclang",
