@@ -15,7 +15,3 @@ COPY package-lock.json .
 RUN npm ci
 
 WORKDIR /highlightjs/highlight.js
-
-COPY build_docker.sh .
-
-CMD [ "/bin/sh", "-c", "./build_docker.sh" ]
