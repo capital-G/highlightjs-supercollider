@@ -17,3 +17,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: make test-docker
+    
+  build:
+    runs-on: ubunt-latest
+    needs: ["test"]
+    steps:
+        - uses: actions/checkout@v4
+        - run: make build-docker
