@@ -41,6 +41,10 @@ hljs.highlightAll();
 
 ## Development
 
+As the build process is rather complex (see <https://github.com/highlightjs/highlight.js/blob/main/extra/3RD_PARTY_QUICK_START.md>) this repository relies on Docker and make to create deterministic builds on any platform.
+
+### Start development in server
+
 `make dev`
 
 Alternative: Start a local development server via `python3 -m http.server` and access the `test/index.html` file on <http://127.0.0.1:8000/test/index.html>.
@@ -48,17 +52,15 @@ After this modify the `src/sclang.js` file and reload the browser.
 
 After the adjustments have been made, it is necessary to build a minified version before it can be published.
 
-### How to build
-
-`make build-docker`
-
-As the build process is rather complex (see <https://github.com/highlightjs/highlight.js/blob/main/extra/3RD_PARTY_QUICK_START.md>) this repository relies on Docker and make to create deterministic builds on any platform.
-
 ### How to run tests
 
 `make test-docker`
 
-Tests will run in CI.
+Tests will also run in CI.
+
+### How to build
+
+`make build-docker`
 
 ### Updating `highlight.js`
 
