@@ -85,9 +85,13 @@ The following files need to be updated if `highlight.js` needs to be updated
 
 ### How to publish
 
-```shell
-npm publish
-```
+* Bump version in `package.json`
+* Create new commit and tag this commit
+* Publish package via
+
+  ```shell
+  npm publish
+  ```
 
 ## License
 
