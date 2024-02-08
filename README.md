@@ -41,31 +41,32 @@ hljs.highlightAll();
 
 ## Development
 
-Start a local development server via `python3 -m http.server` and access the `test.html` file on <http://127.0.0.1:8000/test/test.html>.
+`make dev`
+
+Alternative: Start a local development server via `python3 -m http.server` and access the `test/index.html` file on <http://127.0.0.1:8000/test/index.html>.
 After this modify the `src/sclang.js` file and reload the browser.
 
 After the adjustments have been made, it is necessary to build a minified version before it can be published.
 
 ### How to build
 
-As the build process is rather complex (see <https://github.com/highlightjs/highlight.js/blob/main/extra/3RD_PARTY_QUICK_START.md>) this repository relies on Docker to create deterministic builds on any platform.
+`make build-docker`
 
-```shell
-docker build -t sc-highlightjs .
-# mount the artifacts dist folder from container to host
-docker run --volume "$(pwd)/dist:/highlightjs/sclang/dist" sc-highlightjs
-```
-
-Alternatively use `make build-docker`.
+As the build process is rather complex (see <https://github.com/highlightjs/highlight.js/blob/main/extra/3RD_PARTY_QUICK_START.md>) this repository relies on Docker and make to create deterministic builds on any platform.
 
 ### How to run tests
 
-```shell
-docker build -t sc-highlightjs .
-docker run sc-highlightjs npm run test
-```
+`make test-docker`
 
-Alternatively use `make test-docker`.
+Tests will run in CI.
+
+### Updating `highlight.js`
+
+The following files need to be updated if `highlight.js` needs to be updated
+
+* `Dockerfile` pulls `highlight.js` via a git branch name - update this branch name
+* `package.json` is required for testing
+* `test/index.html` is required for development and links `highlight.js` from unpkg
 
 ## License
 

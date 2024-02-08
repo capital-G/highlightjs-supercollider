@@ -1,26 +1,21 @@
-FROM node:alpine
+FROM node:18-alpine
 
 WORKDIR /highlightjs/
 
 RUN apk add git
 
-RUN git clone --depth 1 --branch 11.7.0 https://github.com/highlightjs/highlight.js.git
+ARG HIGHLIGHT_JS_VERSION=11.9.0
 
-RUN cd /highlightjs/highlight.js && npm install
+RUN git clone --depth 1 --branch ${HIGHLIGHT_JS_VERSION} https://github.com/highlightjs/highlight.js.git
+RUN cd highlight.js && npm ci
 
-COPY package.json /highlightjs/sclang/package.json
-COPY package-lock.json /highlightjs/sclang/package-lock.json
+WORKDIR /highlightjs/sclang/
+COPY package.json .
+COPY package-lock.json .
+RUN npm ci
 
-RUN cd sclang && npm install
+WORKDIR /highlightjs/highlight.js
 
-ENV ONLY_EXTRA=true
+COPY build_docker.sh .
 
-RUN ln -s /highlightjs/sclang /highlightjs/highlight.js/extra/sclang 
-
-RUN cd /highlightjs/highlight.js node ./tools/build.js -t node
-
-WORKDIR "/highlightjs/sclang"
-
-COPY . /highlightjs/sclang
-
-CMD [ "/bin/sh", "-c", "cd /highlightjs/highlight.js && node ./tools/build.js -t cdn" ]
+CMD [ "/bin/sh", "-c", "./build_docker.sh" ]

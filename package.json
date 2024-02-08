@@ -1,14 +1,14 @@
 {
   "name": "highlightjs-sclang",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "sclang syntax highlighting plugin for highlight.js",
-  "main": "src/sclang.js",
+  "main": "dist/sclang.min.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/highlightjs/highlightjs-supercollider.git"
+    "url": "git+https://github.com/capital-G/highlightjs-supercollider"
   },
   "keywords": [
     "sclang",
@@ -20,11 +20,11 @@
   "author": "Dennis Scheiba",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/WinOpsDBA/highlightjs-supercollider/issues"
+    "url": "https://github.com/capital-G/highlightjs-supercollider/issues"
   },
-  "homepage": "https://github.com/highlightjs/highlightjs-supercollider#readme",
+  "homepage": "https://github.com/capital-G/highlightjs-supercollider",
   "devDependencies": {
-    "highlight.js": "^11.7.0",
+    "highlight.js": "^11.9.0",
     "mocha": "^10.2.0",
     "should": "^13.2.3"
   }
