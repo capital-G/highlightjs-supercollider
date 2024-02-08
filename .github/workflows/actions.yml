@@ -19,7 +19,7 @@ jobs:
       - run: make test-docker
     
   build:
-    runs-on: ubunt-latest
+    runs-on: ubuntu-latest
     needs: ["test"]
     steps:
         - uses: actions/checkout@v4
